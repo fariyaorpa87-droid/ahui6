@@ -1,0 +1,28 @@
+{
+  "name": "ahui-translator",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "productName": "阿辉翻译",
+    "appId": "com.ahui.translator",
+    "icon": "assets/icon.ico",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "publish": null,
+    "files": [
+      "**/*"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  }
+}

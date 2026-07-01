@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿辉翻译V4</title>
+<style>
+body{margin:0;font-family:Arial;display:grid;grid-template-columns:220px 1fr 320px;height:100vh}
+#left{background:#f2f2f2;padding:10px}
+#mid{background:#fff}
+#right{background:#fafafa;padding:10px}
+textarea{width:100%;height:120px}
+button{width:100%;padding:8px;margin-top:6px}
+</style>
+</head>
+<body>
+<div id="left"><h3>账号</h3></div>
+<div id="mid"></div>
+<div id="right">
+<h3>翻译</h3>
+<textarea id="t"></textarea>
+<button onclick="go()">翻译</button>
+<div id="r"></div>
+</div>
+
+<script>
+async function go(){
+let text=t.value;
+let res=await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=en&dt=t&q="+encodeURIComponent(text));
+let data=await res.json();
+r.innerText=data[0].map(x=>x[0]).join("");
+}
+</script>
+</body>
+</html>
